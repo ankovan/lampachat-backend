@@ -3,6 +3,7 @@ services:
   lampachat-back:
     restart: always
     image: node:18.17.0
+    working_dir: /app
     command: npm install && npm run dev
     ports:
       - "6001:6001"
