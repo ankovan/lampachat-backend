@@ -5,7 +5,7 @@ import moment from 'moment';
 const app = express();
 const server = app.listen(6001);
 
-const io = new Server(server, { path: "/", cors: { origin: '*' } });
+const io = new Server(server, { path: "/api", cors: { origin: '*', methods: ["GET", "POST"], credentials: true } });
 const roomIds = ["Chatting"];
 const users = {};
 
@@ -63,5 +63,4 @@ io.on("connection", (socket) => {
             roomId: users[socket.id].roomId,
         }) 
       });
-}); 
-
+});

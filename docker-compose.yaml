@@ -4,6 +4,9 @@ services:
     restart: always
     image: node:18.17.0
     working_dir: /app
-    command: npm install && npm run dev
+    # command: npm install || true; npm run dev
+    command: /bin/sh -c "npm install || true; npm run dev"
     ports:
       - "6001:6001"
+    volumes:
+      - ./:/app
